@@ -11,6 +11,7 @@ import {
 
 import Card from '../components/Card'
 import Input from '../components/Input'
+import NumberContainer from '../components/NumberContainer'
 import Colors from '../constants/colors'
 
 const StartGameScreen = props => {
@@ -38,22 +39,31 @@ const StartGameScreen = props => {
     setConfirmed(true)
     setSelectedNumber(chosenNumber)
     setEnteredValue('')
+    Keyboard.dismiss()
   }
-
-  const startGame = () => {}
 
   let confirmedOutput
 
   if (confirmed) {
-    // confirmedOutput = <Text>Chosen Number: {selectedNumber}</Text>
-    Alert.alert(
-      'You have chosen ' + selectedNumber + '!',
-      'Are you ready to start the game?',
-      [
-        { text: 'Okay', style: 'destructive', onPress: resetInputHandler },
-        { text: 'Cancel', style: 'destructive', onPress: resetInputHandler }
-      ]
+    confirmedOutput = (
+      <Card style={styles.summaryContainer}>
+        <Text>You Selected</Text>
+        <NumberContainer>{selectedNumber}</NumberContainer>
+        <Button
+          title="START GAME"
+          onPress={() => props.onStartGame(selectedNumber)}
+        />
+      </Card>
     )
+    // MY ALERT
+    // Alert.alert(
+    //   'You have chosen ' + selectedNumber + '!',
+    //   'Are you ready to start the game?',
+    //   [
+    //     { text: 'Okay', style: 'destructive', onPress: resetInputHandler },
+    //     { text: 'Cancel', style: 'destructive', onPress: resetInputHandler }
+    //   ]
+    // )
   }
 
   return (
@@ -126,6 +136,10 @@ const styles = StyleSheet.create({
   input: {
     width: 50,
     textAlign: 'center'
+  },
+  summaryContainer: {
+    marginTop: 20,
+    alignItems: 'center'
   }
 })
 
