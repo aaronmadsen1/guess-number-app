@@ -49,7 +49,7 @@ const StartGameScreen = props => {
   if (confirmed) {
     confirmedOutput = (
       <Card style={styles.summaryContainer}>
-        <Text>You Selected</Text>
+        <Text style={{ color: Colors.clouds.c9 }}>You Selected</Text>
         <NumberContainer>{selectedNumber}</NumberContainer>
         <MainButton onPress={() => props.onStartGame(selectedNumber)}>
           Start Game!
@@ -90,16 +90,18 @@ const StartGameScreen = props => {
           <View style={styles.buttonContainer}>
             <View style={styles.button}>
               <Button
+                style={styles.buttonText}
                 title="Reset"
                 onPress={resetInputHandler}
-                color={Colors.accent}
+                color={Colors.clouds.c5}
               />
             </View>
             <View style={styles.button}>
               <Button
+                style={styles.buttonText}
                 title="Confirm"
                 onPress={confirmInputHandler}
-                color={Colors.primary}
+                color={Colors.clouds.c2}
               />
             </View>
           </View>
@@ -114,16 +116,19 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     padding: 10,
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor: Colors.clouds.c0
   },
   title: {
     marginVertical: 10,
-    fontSize: 30
+    fontSize: 30,
+    color: Colors.clouds.c6
   },
   inputContainer: {
     width: 300,
     maxWidth: '80%',
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor: Colors.clouds.c4
   },
   buttonContainer: {
     flexDirection: 'row',
@@ -134,9 +139,13 @@ const styles = StyleSheet.create({
   button: {
     width: 95
   },
+  buttonText: {
+    color: Colors.clouds.c1
+  },
   input: {
     width: 50,
-    textAlign: 'center'
+    textAlign: 'center',
+    color: 'white'
   },
   summaryContainer: {
     marginTop: 20,

@@ -14,7 +14,7 @@ const NumberContainer = props => {
 const styles = StyleSheet.create({
   container: {
     borderWidth: 2,
-    borderColor: Colors.accent,
+    borderColor: Colors.clouds.c9,
     padding: 10,
     borderRadius: 10,
     marginVertical: 10,
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   number: {
-    color: Colors.accent,
+    color: Colors.clouds.c12,
     fontSize: 22
   }
 })
